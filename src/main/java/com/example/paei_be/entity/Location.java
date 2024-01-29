@@ -1,0 +1,24 @@
+package com.example.paei_be.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Getter
+public class Location {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long locationId;
+
+    @Column
+    private String locationName;
+
+    @Column
+    private String locationDivision;
+}
