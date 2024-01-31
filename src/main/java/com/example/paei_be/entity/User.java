@@ -24,12 +24,4 @@ public class User {
 
     @Column
     private String account;
-
-//    @OneToMany(mappedBy = "user")
-//    private List<ShortParty> parties = new ArrayList<>();
-//
-//    // 파티 추가 메서드
-//    public void addParty(ShortParty party) {
-//        this.parties.add(party);
-//    }
 }

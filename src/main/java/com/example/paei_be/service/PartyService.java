@@ -1,8 +1,8 @@
 package com.example.paei_be.service;
 
-import com.example.paei_be.dto.ShortPartyDto;
-import com.example.paei_be.entity.ShortParty;
-import com.example.paei_be.repository.ShortPartyRepository;
+import com.example.paei_be.dto.PartyDto;
+import com.example.paei_be.entity.Party;
+import com.example.paei_be.repository.PartyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,32 +11,32 @@ import java.util.List;
 @Service
 public class PartyService {
     @Autowired
-    private ShortPartyRepository shortPartyRepository;
+    private PartyRepository partyRepository;
 
-    public List<ShortParty> shortParties() {
-        return shortPartyRepository.findAll();
+    public List<Party> parties() {
+        return partyRepository.findAll();
     }
 
-    public List<ShortParty> sortedParties(Long categoryId) {
-        return shortPartyRepository.findByCategory(categoryId);
+    public List<Party> sortedParties(Long categoryId) {
+        return partyRepository.findByCategory(categoryId);
     }
 
-    public List<ShortParty> searchParties(String partyTitle) {
+    public List<Party> searchParties(String partyTitle) {
         partyTitle = "%" + partyTitle + "%";
-        return shortPartyRepository.findByPartyTitle(partyTitle);
+        return partyRepository.findByPartyTitle(partyTitle);
     }
 
-    public ShortParty createShortParty(ShortPartyDto dto) {
-        ShortParty party = dto.toEntity();
-        return shortPartyRepository.save(party);
+    public Party createShortParty(PartyDto dto) {
+        Party party = dto.toEntity();
+        return partyRepository.save(party);
     }
 
-    public ShortParty deleteShortParty(Long partyId) {
-        ShortParty target = shortPartyRepository.findById(partyId).orElse(null);
+    public Party deleteShortParty(Long partyId) {
+        Party target = partyRepository.findById(partyId).orElse(null);
 
         if (target == null)
             return null;
-        shortPartyRepository.delete(target);
+        partyRepository.delete(target);
 
         return target;
     }
