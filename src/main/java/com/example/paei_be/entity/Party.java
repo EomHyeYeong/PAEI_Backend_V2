@@ -17,14 +17,14 @@ import java.util.List;
 @ToString
 @Getter
 public class Party {
-    @Id
+    @Id // 파티 ID
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long partyId;
 
-    @Column
+    @Column // 일반 or 고정파티
     private Long partyType;
 
-    @ManyToOne
+    @ManyToOne // 파티 생성자
     @JoinColumn(name="created_by")
     private User createdBy;
 

@@ -18,12 +18,12 @@ public class PartyService {
     }
 
     public List<Party> sortedParties(Long categoryId) {
-        return partyRepository.findByCategory(categoryId);
+        return partyRepository.findAllByCategory(categoryId);
     }
 
     public List<Party> searchParties(String partyTitle) {
         partyTitle = "%" + partyTitle + "%";
-        return partyRepository.findByPartyTitle(partyTitle);
+        return partyRepository.findAllByPartyTitle(partyTitle);
     }
 
     public Party createShortParty(PartyDto dto) {

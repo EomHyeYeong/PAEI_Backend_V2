@@ -12,8 +12,8 @@ public interface PartyRepository extends CrudRepository<Party, Long> {
     ArrayList<Party> findAll();
 
     @Query(value="SELECT * FROM party WHERE category_id = :categoryId", nativeQuery = true)
-    List<Party> findByCategory(Long categoryId);
+    List<Party> findAllByCategory(Long categoryId);
 
     @Query(value="SELECT * FROM party WHERE party_title LIKE :partyTitle", nativeQuery = true)
-    List<Party> findByPartyTitle(String partyTitle);
+    List<Party> findAllByPartyTitle(String partyTitle);
 }
